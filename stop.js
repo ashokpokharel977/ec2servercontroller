@@ -7,8 +7,8 @@ var ec2 = new AWS.EC2({ apiVersion: '2016-11-15' });
 var ec2parameters = {
 	Filters: [
 		{
-			Name: 'tag:Owner',
-			Values: [ 'ashok' ]
+			Name: 'tag:Environment',
+			Values: [ 'dev' ]
 		}
 	]
 };
