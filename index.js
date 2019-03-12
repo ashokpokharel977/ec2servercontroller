@@ -18,13 +18,17 @@ ec2.describeInstances(ec2parameters, function (err, data) {
 		var ec2instances = [];
 		data.Reservations.forEach(function (reservations) {
 			reservations.Instances.forEach(function (instances) {
-				console.log(instances.InstanceId);
+				//console.log(instances.InstanceId);
 				ec2instances.push(instances.InstanceId);
 			});
 		});
 		var params = {
 			InstanceIds: ec2instances
 		};
-		console.log(params);
+		//console.log(params);
+		ec2.stopInstances(params, function (err, data) {
+			if (err) console.log(err, err.stack);
+			else console.log(data);
+		});
 	}
 });
