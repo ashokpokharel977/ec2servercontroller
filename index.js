@@ -15,10 +15,13 @@ var ec2parameters = {
 ec2.describeInstances(ec2parameters, function (err, data) {
 	if (err) console.log(err, err.stack);
 	else {
+		var ec2instances = [];
 		data.Reservations.forEach(function (reservations) {
 			reservations.Instances.forEach(function (instances) {
 				console.log(instances.InstanceId);
+				ec2instances.push(instances.InstanceId);
 			});
 		});
+		console.log(ec2instances);
 	}
 });
