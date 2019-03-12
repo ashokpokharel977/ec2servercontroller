@@ -22,6 +22,9 @@ ec2.describeInstances(ec2parameters, function (err, data) {
 				ec2instances.push(instances.InstanceId);
 			});
 		});
-		console.log(ec2instances);
+		var params = {
+			InstanceIds: ec2instances
+		};
+		console.log(params);
 	}
 });
